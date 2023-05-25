@@ -30,7 +30,7 @@ const SendAnalytics = () => {
     });
 }
 
-if (process.env.NODE_ENV === 'production') {
-    ReactGA.initialize('G-SWHCBVQ4PC');
-    reportWebVitals(SendAnalytics)
-}
+// if (process.env.NODE_ENV === 'production') {
+//     ReactGA.initialize('G-SWHCBVQ4PC');
+//     reportWebVitals(SendAnalytics)
+// }
