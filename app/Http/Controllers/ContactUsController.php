@@ -33,6 +33,6 @@ class ContactUsController extends Controller
             'message' => $request->message,
         ]));
 
-        return redirect()->back()->with('success', 'We have received you request, we shall be in contact soon');
+        return redirect()->back()->with('success', 'We have received your request, we shall be in contact soon');
     }
 }

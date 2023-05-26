@@ -4,6 +4,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Inertia } from '@inertiajs/inertia';
 import AdminLayout from './Component/AdminLayout';
 import { toast } from 'react-toastify';
+import Compressor from 'compressorjs';
 
 
 const UploadArticleScreen = ({ categories }) => {
@@ -12,6 +13,20 @@ const UploadArticleScreen = ({ categories }) => {
   const [articleCategory, setArticleCategory] = useState('');
   const [articleContent, setArticleContent] = useState('');
   const [articleImage, setArticleImage] = useState(null);
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+
+    new Compressor(file, {
+      quality: 0,
+      success(result) {
+        setArticleImage(result);
+      },
+      error(err) {
+        console.log(err.message);
+      },
+    });
+  };
 
 
   const handleSubmit = (event) => {
@@ -114,7 +129,7 @@ const UploadArticleScreen = ({ categories }) => {
               id="articleImage"
               type="file"
               accept="image/*"
-              onChange={(event) => setArticleImage(event.target.files[0])}
+              onChange={handleImageChange}
             />
           </div>
           <div className="flex items-center justify-between">

@@ -57,7 +57,7 @@ function Advertise() {
                                 SEND
                             </Button>
                             <Typography color="gray" className="mt-4 font-normal">
-                                South Sudan Global (SSG) is an online news leader focusing on South Sudan, Africa & Beyond.
+                                Spillnation is a website that updates people about the events and entertainmet related stuff happening around Uganda
                             </Typography>
                         </form>
                     </Card>

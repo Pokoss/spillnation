@@ -5,6 +5,7 @@ import AdminLayout from './Component/AdminLayout';
 import { toast } from 'react-toastify';
 import { useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
+import Compressor from 'compressorjs';
 
 
 const AdminBlogDetail = ({ postData, comments, categories }) => {
@@ -41,23 +42,34 @@ const AdminBlogDetail = ({ postData, comments, categories }) => {
 
   function handleImageChange(event) {
     const image = event.target.files[0];
-    const fileReader = new FileReader();
+    new Compressor(image, {
+      quality: 0.2,
+      success(result) {
+        const fileReader = new FileReader();
 
-    if (postData) {
-      Inertia.post(`/admin/blog/${postData.slug}/image`, { image }, {
-        preserveScroll: true, preserveState: true,
-        onSuccess: () => {
-          fileReader.readAsDataURL(image);
-          fileReader.onload = () => setImageSrc(fileReader.result);
-          toast.success('Image saved')
+        if (postData) {
+          Inertia.post(`/admin/blog/${postData.slug}/image`, { result }, {
+            preserveScroll: true, preserveState: true,
+            onSuccess: () => {
+              fileReader.readAsDataURL(result);
+              fileReader.onload = () => setImageSrc(fileReader.result);
+              toast.success('Image saved')
+            }
+          })
         }
-      })
-    }
-    else {
-      fileReader.readAsDataURL(image);
-      fileReader.onload = () => setImageSrc(fileReader.result);
-      setData('image', image);
-    }
+        else {
+          fileReader.readAsDataURL(result);
+          fileReader.onload = () => setImageSrc(fileReader.result);
+          setData('image', result);
+        }
+      },
+      error(err) {
+        console.log(err.message);
+      },
+    });
+
+
+    
   }
 
 

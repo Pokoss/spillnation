@@ -53,25 +53,23 @@ export const Footer = () => {
                             </div>
 
                             <div>
-                                <h2 className="text-gray-300 uppercase dark:text-white">News</h2>
+                                <h2 className="text-gray-300 uppercase dark:text-white">Categories</h2>
                                 <Link href="/category/lifestyle" className="block mt-2 text-sm white text-white hover:underline">LifeStyle</Link>
                                 <Link href="/category/entertainment" className="block mt-2 text-sm white text-white hover:underline">Entertainment</Link>
                                 <Link href="/category/sports" className="block mt-2 text-sm white text-white hover:underline">Sports</Link>
                             </div>
 
                             <div>
-                                <h2 className="text-gray-300 uppercase dark:text-white">Categories</h2>
-                                <Link href="/category/entertainment" className="block mt-2 text-sm white text-white hover:underline">Fashion</Link>
+                                
+                                <Link href="/category/fashion" className="block mt-2 text-sm white text-white hover:underline">Fashion</Link>
                                 <Link href="/category/education" className="block mt-2 text-sm white text-white hover:underline">Education</Link>
                                 {/* <Link href="/education" className="block mt-2 text-sm white text-white hover:underline">Education</Link> */}
                             </div>
 
                             <div>
                                 <h2 className="text-gray-300 uppercase dark:text-white"></h2>
-                                <Link href="/politics" className="block mt-2 text-sm white text-white hover:underline">Politics</Link>
-                                <Link href="/agriculture" className="block mt-2 text-sm white text-white hover:underline">Agriculture</Link>
-                                <Link href="/technology" className="block mt-2 text-sm white text-white hover:underline">Technology</Link>
-                                <Link href="/sports" className="block mt-2 text-sm white text-white hover:underline">Sports</Link>
+                                <Link href="/category/technology" className="block mt-2 text-sm white text-white hover:underline">Technology</Link>
+                                <Link href="/category/sports" className="block mt-2 text-sm white text-white hover:underline">Sports</Link>
                             </div>
 
                             {/* <div>

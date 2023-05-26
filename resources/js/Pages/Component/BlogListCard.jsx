@@ -4,7 +4,7 @@ import React from 'react';
 function BlogListCard({ image, title, description, time }) {
   return (
     <div className=''>
-        <div className="flex flex-wrap mb-2">
+        <div className="flex flex-wrap rounded shadow-sm mb-2">
           <div className="grow-0 shrink-0 basis-auto w-full md:w-4/12 px-3 md:mb-0">
             <div
               className="relative overflow-hidden bg-no-repeat bg-cover -z-50 ripple rounded-lg mb-3"

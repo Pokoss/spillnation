@@ -21,7 +21,7 @@ function RegisterScreen() {
                 <section className="flex flex-col md:flex-row h-screen items-center">
 
                     <div className="bg-indigo-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/JUBA_VIEW.jpg/800px-JUBA_VIEW.jpg " alt="" className="w-full h-full object-cover" />
+                        <img src="/images/auth-image.jpg " alt="" className="w-full h-full object-cover" />
                     </div>
 
                     <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12

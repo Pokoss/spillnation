@@ -22,7 +22,7 @@ function Home({ latest, latests, blog, blog_category, trending_posts }) {
                     <h1 className="text-2xl lg:text-3xl font-bold text-blue-500 hover:underline text-left line-clamp-4">
                         <Link href={"/" + latest.slug}>{latest.title}</Link>
                     </h1>
-                    <p className="max-w-xl text-lg leading-relaxed text-gray-50 sm:mx-auto lg:ml-0 text-left line-clamp-5">
+                    <p className="max-w-xl text-md leading-relaxed text-gray-50 sm:mx-auto lg:ml-0 text-left line-clamp-5">
                         {latest.description}
                     </p>
                     <Link href={"/" + latest.slug} title={latest.title} className="block text-primary rounded-md hover:underline text-left">
@@ -30,7 +30,7 @@ function Home({ latest, latests, blog, blog_category, trending_posts }) {
                     </Link>
                 </div>
                 <div className='hidden md:block w-full lg:w-1/4 text-gray-50'>
-                    <h2 className='font-semibold text-lg'>LATEST ARTICLES</h2>
+                    <h2 className='font-semibold text-lg'>LATEST POSTS</h2>
                     {latests && latests.map((post, index) =>
                         <Link key={index} href={'/' + post.slug}>
                             <VideoListCard image={post.imageurl} title={post.title} />
@@ -49,13 +49,13 @@ function Home({ latest, latests, blog, blog_category, trending_posts }) {
                 <section id='left' className='w-full md:w-2/3 flex flex-col items-center px-3 divide-y-2 divide-blue-200'>
                     <div className='w-full justify-start mb-5' >
                         <h2 className="ml-6 mb-2 mt-5 text-2xl font-extrabold text-gray-900 dark:text-white md:text-2xl lg:text-3xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">Latest</span></h2>
-                        <div className="grid grid-cols-1 gap-y-5 gap-x-5 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-5">
+                        {/* <div className="grid grid-cols-1 gap-y-5 gap-x-5 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-5"> */}
                             {latests && latests.map((latest, index) =>
                                 <Link key={index} href={"/" + latest.slug}>
-                                    <BlogListCard2 title={latest.title} content={latest.description} time={latest.updated_at} image={latest.imageurl} />
+                                    <BlogListCard title={latest.title} description={latest.description} time={latest.updated_at} image={latest.imageurl} />
                                 </Link>
                             )}
-                        </div>
+                        {/* </div> */}
                     </div>
 
                     {/* <div className='w-full'>
@@ -67,13 +67,17 @@ function Home({ latest, latests, blog, blog_category, trending_posts }) {
                             blog_category.map((category, index) => <div key={index}>
                                 {category.blog.length == 0 ? <></> : <>
                                     <h2 className="ml-6 mb-2 my-10 text-2xl font-extrabold text-gray-900 dark:text-white md:text-2xl lg:text-3xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">  {category.name}</span></h2>
+                                    <div className="grid grid-cols-1 gap-y-5 gap-x-5 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-5">
                                     {category.blog.map((blogs, index) =>
                                         <Link key={index} href={"/" + blogs.slug}>
-                                            <BlogListCard key={blogs.id} image={blogs.imageurl} title={blogs.title} description={blogs.description} time={blogs.created_at} />
+                                            {/* <BlogListCard key={blogs.id} image={blogs.imageurl} title={blogs.title} description={blogs.description} time={blogs.created_at} /> */}
+
+                                            <BlogListCard2 key={blogs.id} image={blogs.imageurl} title={blogs.title} content={blogs.description} time={blogs.created_at} />
                                         </Link>
                                     )}
+                                            </div>
 
-                                    <Link href={"/category/" + category.slug} type="submit" className="m-2 p-2 text-sm font-medium text-white bg-gradient-to-r to-black from-blue-900  focus:ring-4 focus:outline-none">
+                                    <Link href={"/category/" + category.slug} type="submit" className="m-2 p-2 text-sm rounded font-medium text-white bg-gradient-to-r to-black from-blue-900  focus:ring-4 focus:outline-none">
                                         {"More " + category.name}
                                     </Link>
                                 </>}
@@ -106,7 +110,7 @@ function Home({ latest, latests, blog, blog_category, trending_posts }) {
                     </div> */}
 
                     <div className='sticky top-20'>
-                        <h2 className="ml-6 mb-2 mt-5 text-sm font-extrabold text-gray-900 dark:text-white md:text-xs lg:text-sm"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">Trending Posts</span></h2>
+                        <h2 className="ml-6 mb-2 mt-5 text-sm font-extrabold text-gray-900 dark:text-white md:text-xs lg:text-sm"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">Trending</span></h2>
                         {trending_posts && trending_posts.map((post, index) =>
                             <Link key={index} href={'/' + post.slug} >
                                 <BlogAsideCard

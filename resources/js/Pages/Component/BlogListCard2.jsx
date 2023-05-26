@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/inertia-react';
 function BlogListCard2({ title, content, time, image }) {
   return (
     <div>
-      <div className="w-full rounded-lg lg:max-w-sm" >
+      <div className="w-full rounded-lg shadow hover:bg-blue-gray-50 lg:max-w-sm" >
         <img
           className="object-cover w-full h-48"
           src={'/' + image}

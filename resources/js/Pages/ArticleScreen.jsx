@@ -61,25 +61,25 @@ function ArticleScreen({ blog, category, latests, category_name, comments }) {
 
                         <div className="bg-white flex flex-col justify-start px-3 md:px-5">
                             <h1 className="text-3xl font-bold hover:text-gray-700 pb-4">{blog.title}</h1>
-                            <div className="text-primary text-sm font-bold uppercase pb-4">{category_name.name}</div>
-                            <div className="text-sm pb-3">
-                                {!['regional', 'africa', 'world'].includes(category_name.slug) && <>
-                                    By <span className="font-semibold hover:text-gray-800">{blog.user.name}</span>, <br />
-                                </>}
-                                Published on {new Date(blog.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                            </div>
+                            
+                            
                         </div>
 
                         <div className='py-5 text-center'>
                             <img src={'/' + blog.imageurl} className='w-full' alt={blog.title} />
-                            <span className='text-sm italic text-gray-600'>Image: {blog.image_description ?? 'no description'}</span>
+                            {/* <span className='text-sm italic text-gray-600'>Image: {blog.image_description ?? 'no description'}</span> */}
                         </div>
-
-                        <div className="pb-6 px-3 md:px-5 my-5">
+                        <div className="text-md ml-4 font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">{category_name.name}</div>
+                        <div className=" px-3 md:px-5 my-5">
                             {parse(blog.content)}
                         </div>
 
-
+                        <div className="ml-4 text-sm pb-6 text-blue-900 font-thin">
+                                {!['regional', 'africa', 'world'].includes(category_name.slug) && <>
+                                    By <span className="text-blue-900 font-semibold hover:text-gray-800">{blog.user.name +', '}</span>
+                                </>}
+                                on {new Date(blog.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                            </div>
                         {/* <div className='w-full'>
                             <AdsComponent dataAdSlot='6063218924' />
                         </div> */}
@@ -130,7 +130,7 @@ function ArticleScreen({ blog, category, latests, category_name, comments }) {
                                         placeholder="Write a comment..." required></textarea>
                                 </div>
                                 <button type="submit"
-                                    className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-red-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                                    className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-900 rounded focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                                     Post comment
                                 </button>
                             </form>
@@ -145,7 +145,7 @@ function ArticleScreen({ blog, category, latests, category_name, comments }) {
                 </section>
 
                 <aside className="w-full md:w-1/3 flex flex-col items-center px-3">
-                    <h1 className="ml-6 w-full mb-2 mt-5 text-sm font-extrabold text-gray-900 dark:text-white md:text-xs lg:text-sm"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-yellow-500">Similar Posts</span></h1>
+                    <h1 className="ml-6 w-full mb-2 mt-5 text-sm font-extrabold text-gray-900 dark:text-white md:text-xs lg:text-sm"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">Similar Posts</span></h1>
                     {category && category.map((blog, index) =>
                         <Link key={index} href={"/" + blog.slug}>
                             {/* <BlogListCard key={blog.id} image={blogs.imageurl} title={blogs.title} description={blogs.description} time={blogs.created_at} /> */}
@@ -191,7 +191,7 @@ function ArticleScreen({ blog, category, latests, category_name, comments }) {
                     </div> */}
 
                     <div className="w-full bg-white shadow flex flex-col my-4 p-6 sticky top-20">
-                        <h1 className="ml-2 w-full mb-2 mt-5 text-md font-extrabold text-gray-900 dark:text-white md:text-xs lg:text-2xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-yellow-500">Latest Posts</span></h1>
+                        <h1 className="ml-2 w-full mb-2 mt-5 text-md font-extrabold text-gray-900 dark:text-white md:text-xs lg:text-2xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">Latest</span></h1>
                         {latests && latests.map((blog, index) =>
                             <Link key={index} href={"/" + blog.slug}>
                                 {/* <BlogListCard key={blog.id} image={blogs.imageurl} title={blogs.title} description={blogs.description} time={blogs.created_at} /> */}

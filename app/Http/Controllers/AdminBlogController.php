@@ -83,7 +83,7 @@ class AdminBlogController extends Controller
         $blog->content = $request->input('content');
         $blog->description = $request->input('description');
         $blog->category = $request->input('category');
-        $blog->image_description = $request->input('image_description');
+        // $blog->image_description = $request->input('image_description');
 
         $blog->save();
     }
@@ -106,15 +106,15 @@ class AdminBlogController extends Controller
 
         $file = $request->file('image');
 
-        if ($file) {
-            // $filename = $blog->slug . '.' . $file->extension();
-            $destinationPath = 'images/blog/' . $blog->slug . '.webp';
-            $imageResize = Image::make($file)->encode('webp', 70)->resize(960, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path($destinationPath));
-            // $path = $file->storeAs('/images/blog', $filename, ['disk' => 'public_uploads']);
-            $blog->imageurl = $destinationPath;
-        }
+        // if ($file) {
+        //     // $filename = $blog->slug . '.' . $file->extension();
+        //     $destinationPath = 'images/blog/' . $blog->slug . '.webp';
+        //     $imageResize = Image::make($file)->encode('webp', 70)->resize(960, null, function ($constraint) {
+        //         $constraint->aspectRatio();
+        //     })->save(public_path($destinationPath));
+        //     // $path = $file->storeAs('/images/blog', $filename, ['disk' => 'public_uploads']);
+        //     $blog->imageurl = $destinationPath;
+        // }
 
         $blog->save();
     }
