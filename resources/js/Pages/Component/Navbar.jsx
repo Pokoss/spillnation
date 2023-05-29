@@ -147,14 +147,9 @@ function Navbar() {
       <nav className="flex flex-wrap items-center justify-between shadow-lg bg-black p-3 sticky top-0 z-50">
         <div className="container flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <div className='flex lg:hidden items-center py-2 px-4 bg-black'>
+            <div className='flex lg:hidden items-center py-1 px-4 bg-black'>
               <Link href='/'>
-                {/* <img className='h-8 object-contain' src='/images/logo.png' alt="SSG logo" /> */}
-              </Link>
-              <Link href='/'>
-                <h1 className="relative pl-5 text-lg text-gray-50 font-bold tracking-tight">
-                  Spillnation
-                </h1>
+                <img className='h-10 object-contain' src='/images/spill-logo.png' alt="Spillnation logo" />
               </Link>
             </div>
 
@@ -198,14 +193,9 @@ function Navbar() {
           </div>
 
           <div onClick={() => setNavbarOpen(false)} className={"lg:flex flex-grow flex-col md:flex-row" + (navbarOpen ? " flex" : " hidden")} id="example-navbar-danger">
-            <div className='hidden lg:flex items-center py-2 px-8'>
+            <div className='hidden lg:flex items-center py-1 px-8'>
               <Link href='/'>
-                {/* <img className='h-12 object-contain' src='/images/logo.png' alt="SSG logo" /> */}
-              </Link>
-              <Link href='/'>
-                <h1 className="relative pl-5 xl:text-2xl ml-3 text-gray-50 font-bold tracking-tight">
-                  Spillnation
-                </h1>
+                <img className='h-14 object-contain' src='/images/spill-logo.png' alt="Spillnation logo" />
               </Link>
             </div>
 
