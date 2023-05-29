@@ -22,7 +22,14 @@
     <meta property="twitter:title" content="@isset($title){{$title}}@else Spillnation @endisset">
     <meta property="twitter:description" content="@isset($description){{$description}}@else It is in the best interest of our professional news anchors to feed our esteemed viewers and the general public with impartial, multi-dimensional news, entertainment or in-depth analyses as possible. @endisset">
     <meta property="twitter:image" content="@isset($image){{$image}}@else {{url('/images/logo.png')}} @endisset">
-
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8694698492521431" crossorigin="anonymous"></script>
