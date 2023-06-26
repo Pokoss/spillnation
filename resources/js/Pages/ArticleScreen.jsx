@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import parse from 'html-react-parser'
 import BlogAsideCard from './Component/BlogAsideCard'
 import { Head, Link, useForm, usePage } from '@inertiajs/inertia-react'
 import { FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, TwitterIcon, TwitterShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
-
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CommentCard from './Component/CommentCard'
 import Layout from './Component/Layout'
 import ReactGA from 'react-ga4';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.bubble.css';
 // import AdsComponent from './Component/AdsComponent';
 // import { Adsense } from '@ctrl/react-adsense';
 
@@ -61,8 +61,6 @@ function ArticleScreen({ blog, category, latests, category_name, comments }) {
 
                         <div className="bg-white flex flex-col justify-start px-3 md:px-5">
                             <h1 className="text-3xl font-bold hover:text-gray-700 pb-4">{blog.title}</h1>
-                            
-                            
                         </div>
 
                         <div className='py-5 text-center'>
@@ -71,7 +69,10 @@ function ArticleScreen({ blog, category, latests, category_name, comments }) {
                         </div>
                         <div className="text-md ml-4 font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">{category_name.name}</div>
                         <div className=" px-3 md:px-5 my-5">
-                            {parse(blog.content)}
+                            {/* {parse(blog.content)} */}
+                            <ReactQuill theme="bubble" value={blog.content} readOnly={true}
+                            style={{ fontSize: '25px', lineHeight: '2.0' }} // Adjust the font size and line spacing
+                            />
                         </div>
 
                         <div className="ml-4 text-sm pb-6 text-blue-900 font-thin">

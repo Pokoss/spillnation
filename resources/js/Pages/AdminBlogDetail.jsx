@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import AdminLayout from './Component/AdminLayout';
 import { toast } from 'react-toastify';
 import { useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 import Compressor from 'compressorjs';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 
 const AdminBlogDetail = ({ postData, comments, categories }) => {
   const { data, setData, post, put, errors, delete: deleteBlog } = useForm(postData);
   const [imageSrc, setImageSrc] = useState(null);
+  const [content, setContent] = useState('');
+
 
   const setValue = e => setData(e.target.id, e.target.value)
 
@@ -72,7 +74,46 @@ const AdminBlogDetail = ({ postData, comments, categories }) => {
     
   }
 
+  const modules = {
+    toolbar: [
+      [{ 'header': [1, 2, false] }, { "font": [] }], // custom dropdown
+      ["bold", "italic", "underline", "strike"],
+      [{ "color": [] }, { "background": [] }],
+      [{ "script": "sub" }, { "script": "super" }],
+      ["blockquote", "code-block"],
+      [{ "list": "ordered" }, { "list": "bullet" }, { "indent": "-1" }, { "indent": "+1" }],
+      [{ "direction": "rtl" }, { "align": [] }],
+      ["link", "image", "video", "formula"],
+      ["clean"]
+    ],
+    
+  };
 
+
+  const formats = [
+    "header",
+    "font",
+    "size",
+    "bold",
+    "italic",
+    "underline",
+    "align",
+    "strike",
+    "script",
+    "blockquote",
+    "background",
+    "list",
+    "bullet",
+    "indent",
+    "link",
+    "image",
+    "color",
+    "code-block",
+  ];
+
+  const handleContentChange = (value) => {
+    setData('content', value);
+  };
   return (
     <div className='my-5'>
       <form onSubmit={handleSubmit} className="flex flex-col-reverse lg:flex-row lg:space-x-10 bg-white px-5">
@@ -80,11 +121,16 @@ const AdminBlogDetail = ({ postData, comments, categories }) => {
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="articleContent">
             Article Content
           </label>
-          <CKEditor
+          {/* <CKEditor
             editor={ClassicEditor}
             data={data.content}
             onChange={(event, editor) => setData('content', editor.getData())}
-          />
+          /> */}
+           <ReactQuill theme="snow" 
+           modules={modules} formats={formats} 
+           value={data.content} onChange={handleContentChange} 
+           style={{ fontSize: '25px', lineHeight: '2.0' }} // Adjust the font size and line spacing
+           />
           {errors.content && <span className='text-xs text-red-500'>{errors.content}</span>}
         </div>
 

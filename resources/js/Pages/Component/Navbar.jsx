@@ -54,7 +54,7 @@ function Navbar() {
   return (
     <>
       <ToastContainer />
-      <div className='bg-blue-900 h-8 sticky top-0 z-50'>
+      <div className='bg-blue-800 h-8 sticky top-0 z-50'>
         <div className='flex justify-between content-center pt-1'>
           <div className="flex items-center justify-center ml-4">
             <a href="https://www.facebook.com/spillnation" title='Visit our Facebook' className="mx-2 text-white transition-colors duration-300  hover:text-black" aria-label="Facebook">

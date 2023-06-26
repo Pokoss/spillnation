@@ -10,6 +10,7 @@ import Layout from './Component/Layout';
 
 
 function Home({ latest, latests, blog, blog_category, trending_posts }) {
+    console.log(blog_category)
     return (
         <>
             <section className="flex flex-col lg:flex-row lg:space-x-5 justify-between items-center bg-black p-2 lg:p-10">
