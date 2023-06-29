@@ -76,7 +76,7 @@ const AdminBlogDetail = ({ postData, comments, categories }) => {
 
   const modules = {
     toolbar: [
-      [{ 'header': [1, 2, false] }, { "font": [] }], // custom dropdown
+      [{ 'header': [1, 2,3,4, false] }, {}, { "font": [] }], // custom dropdown
       ["bold", "italic", "underline", "strike"],
       [{ "color": [] }, { "background": [] }],
       [{ "script": "sub" }, { "script": "super" }],
@@ -84,7 +84,8 @@ const AdminBlogDetail = ({ postData, comments, categories }) => {
       [{ "list": "ordered" }, { "list": "bullet" }, { "indent": "-1" }, { "indent": "+1" }],
       [{ "direction": "rtl" }, { "align": [] }],
       ["link", "image", "video", "formula"],
-      ["clean"]
+      ["clean"],
+      [{'size': ['small',false,'large','huge']}]
     ],
     
   };
