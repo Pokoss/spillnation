@@ -27,11 +27,16 @@ class BlogController extends Controller
         //     $query->latest('created_at')->take(4);
         // }])->get();
 
-        $blog_category = BlogCategory::with(['blog' => function($query) {
-            $query->latest('created_at')->take(4);
-        }])->get();
+        // $blog_category = BlogCategory::with(['blog' => function($query) {
+        //     $query->latest('created_at')->take(4);
+        // }])->get();
 
-        $blog_category = BlogCategory::with('blog')->latest('created_at')->take(4)->get();
+        // $blog_category = BlogCategory::with(['blog' => function($query) {
+        //     $query->latest('created_at');
+        // }])->get();
+
+        // $blog_category = BlogCategory::with('blog')->latest('created_at')->take(4)->get();
+        $blog_category = BlogCategory::with('blog')->latest('created_at')->get();
         $ads = Ads::all();
 
 
