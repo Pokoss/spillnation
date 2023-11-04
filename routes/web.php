@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminVideoController;
+use App\Http\Controllers\AdsController;
 use App\Http\Controllers\AdvertiseRequestController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactUsController;
@@ -43,6 +44,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin', fn()=>redirect('/admin/blog'));
     Route::resource('/admin/ssgtv', AdminVideoController::class);
     Route::post('/admin/blog/{slug}/image', [AdminBlogController::class, 'update_image']);
+    Route::get('/admin/ads', [AdsController::class, 'index']);
+    Route::post('/admin/ads', [AdsController::class, 'store']);
     Route::resource('/admin/blog', AdminBlogController::class)->only('index', 'show', 'store', 'update', 'destroy')->names('admin');
 });
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ads;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\BlogComment;
@@ -31,6 +32,7 @@ class BlogController extends Controller
         }])->get();
 
         $blog_category = BlogCategory::with('blog')->latest('created_at')->take(4)->get();
+        $ads = Ads::all();
 
 
 
@@ -41,6 +43,7 @@ class BlogController extends Controller
             'latests' => $latests,
             'blog_category' => $blog_category,
             'trending_posts' => $trending_posts,
+            'ads'=>$ads
         ]);
     }
 

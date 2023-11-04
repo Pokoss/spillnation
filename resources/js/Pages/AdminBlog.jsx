@@ -67,6 +67,13 @@ function AdminBlog({ posts, categories }) {
             <p key={index} className='shadow p-2'>{category.name} ({category.blog_count ?? 0})</p>
           )}
         </div>
+        <h1 className='text-2xl font-semibold'>Ads Section</h1>
+        <div className='py-5 border-t-2'>
+          <Link href='/admin/ads'>
+            <p className='shadow p-2'>Create Ad</p>
+          </Link>
+        
+        </div>
       </div>
     </div>
   )

@@ -9,8 +9,8 @@ import Layout from './Component/Layout';
 // import { Adsense } from '@ctrl/react-adsense';
 
 
-function Home({ latest, latests, blog, blog_category, trending_posts }) {
-    console.log(blog_category)
+function Home({ latest, latests, blog, blog_category, trending_posts, ads }) {
+    console.log(ads)
     return (
         <>
             <section className="flex flex-col lg:flex-row lg:space-x-5 justify-between items-center bg-black p-2 lg:p-10">
@@ -51,11 +51,11 @@ function Home({ latest, latests, blog, blog_category, trending_posts }) {
                     <div className='w-full justify-start mb-5' >
                         <h2 className="ml-6 mb-2 mt-5 text-2xl font-extrabold text-gray-900 dark:text-white md:text-2xl lg:text-3xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">Latest</span></h2>
                         {/* <div className="grid grid-cols-1 gap-y-5 gap-x-5 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-5"> */}
-                            {latests && latests.map((latest, index) =>
-                                <Link key={index} href={"/" + latest.slug}>
-                                    <BlogListCard title={latest.title} description={latest.description} time={latest.updated_at} image={latest.imageurl} />
-                                </Link>
-                            )}
+                        {latests && latests.map((latest, index) =>
+                            <Link key={index} href={"/" + latest.slug}>
+                                <BlogListCard title={latest.title} description={latest.description} time={latest.updated_at} image={latest.imageurl} />
+                            </Link>
+                        )}
                         {/* </div> */}
                     </div>
 
@@ -69,14 +69,14 @@ function Home({ latest, latests, blog, blog_category, trending_posts }) {
                                 {category.blog.length == 0 ? <></> : <>
                                     <h2 className="ml-6 mb-2 my-10 text-2xl font-extrabold text-gray-900 dark:text-white md:text-2xl lg:text-3xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">  {category.name}</span></h2>
                                     <div className="grid grid-cols-1 gap-y-5 gap-x-5 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-5">
-                                    {category.blog.map((blogs, index) =>
-                                        <Link key={index} href={"/" + blogs.slug}>
-                                            {/* <BlogListCard key={blogs.id} image={blogs.imageurl} title={blogs.title} description={blogs.description} time={blogs.created_at} /> */}
+                                        {category.blog.map((blogs, index) =>
+                                            <Link key={index} href={"/" + blogs.slug}>
+                                                {/* <BlogListCard key={blogs.id} image={blogs.imageurl} title={blogs.title} description={blogs.description} time={blogs.created_at} /> */}
 
-                                            <BlogListCard2 key={blogs.id} image={blogs.imageurl} title={blogs.title} content={blogs.description} time={blogs.created_at} />
-                                        </Link>
-                                    )}
-                                            </div>
+                                                <BlogListCard2 key={blogs.id} image={blogs.imageurl} title={blogs.title} content={blogs.description} time={blogs.created_at} />
+                                            </Link>
+                                        )}
+                                    </div>
 
                                     <Link href={"/category/" + category.slug} type="submit" className="m-2 p-2 text-sm rounded font-medium text-white bg-gradient-to-r to-black from-blue-900  focus:ring-4 focus:outline-none">
                                         {"More " + category.name}
@@ -110,7 +110,7 @@ function Home({ latest, latests, blog, blog_category, trending_posts }) {
                         <AdsComponent dataAdSlot='6063218924' />
                     </div> */}
 
-                    <div className='sticky top-20'>
+                    <div className=''>
                         <h2 className="ml-6 mb-2 mt-5 text-sm font-extrabold text-gray-900 dark:text-white md:text-xs lg:text-sm"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">Trending</span></h2>
                         {trending_posts && trending_posts.map((post, index) =>
                             <Link key={index} href={'/' + post.slug} >
@@ -120,6 +120,17 @@ function Home({ latest, latests, blog, blog_category, trending_posts }) {
                                     time={post.created_at} />
                             </Link>
                         )}
+
+
+                    </div>
+                    <div className=''>
+
+                        <h2 className=" ml-6 mb-2 mt-5 text-sm font-extrabold text-gray-900 dark:text-white md:text-xs lg:text-sm"><span className="text-transparent bg-clip-text bg-gradient-to-r to-black from-blue-900">Adverts</span></h2>
+                        <div className='p-5'>
+                            {ads && ads.map((ad) =>
+                                <img className='pt-5' src={ad.imageurl} />
+                            )}
+                        </div>
                     </div>
 
                     {/* <div className='w-full'>

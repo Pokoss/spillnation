@@ -14,7 +14,7 @@ class StaticController extends Controller
     {
         return Inertia::render('AboutUs')->withViewData([
             'title' => 'About Us',
-            'description' => 'South Sudan Global (SSG) is an online news leader focusing on South Sudan, Africa & Beyond. We’re guided by the principle of integrity and impartiality. It is in the best interest of our professional news anchors to feed our esteemed viewers and the general public with impartial, multi-dimensional news or in-depth analyses as possible.',
+            'description' => 'Spillnation is an online news leader focusing on Uganda, Africa & Beyond. We’re guided by the principle of integrity and impartiality. It is in the best interest of our professional news anchors to feed our esteemed viewers and the general public with impartial, multi-dimensional news or in-depth analyses as possible.',
         ]);
     }
 
